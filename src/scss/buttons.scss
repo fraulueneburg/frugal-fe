@@ -1,0 +1,20 @@
+button,
+.btn {
+	border: none;
+}
+
+.btn-icon {
+	border-radius: 50%;
+	height: 48px;
+	margin: 0;
+	padding: 0;
+	width: 48px;
+}
+
+.btn-delete {
+	background-color: var(--color-red);
+}
+
+.btn-add {
+	background-color: var(--color-green);
+}

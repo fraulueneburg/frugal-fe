@@ -1,1 +1,11 @@
 @use './scss/pico/pico.classless.scss';
+
+@use './scss/variables.scss';
+@use './scss/typography.scss';
+
+@use './scss/header.scss';
+@use './scss/nav.scss';
+
+@use './scss/buttons.scss';
+@use './scss/forms.scss';
+@use './scss/tables.scss';

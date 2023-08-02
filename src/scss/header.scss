@@ -1,0 +1,23 @@
+#root > header {
+	border-bottom: 1px solid var(--muted-border-color);
+	padding-bottom: 0;
+}
+
+header > * {
+	display: inline-block;
+}
+
+.logo {
+	display: inline-block;
+	font-size: 2.5rem;
+	transform: scale(1);
+	transition: var(--transition-default);
+}
+
+.logo:hover,
+.logo:focus,
+.logo:active {
+	transform: scale(1.2);
+	transition: var(--transition-default);
+	text-decoration: none;
+}
