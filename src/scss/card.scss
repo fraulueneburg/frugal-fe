@@ -1,0 +1,11 @@
+.card {
+	background: var(--card-background-color);
+	box-shadow: var(--card-box-shadow);
+	border-radius: var(--border-radius);
+	margin-bottom: var(--spacing);
+	padding: var(--spacing);
+
+	&.hint {
+		border: var(--border-width-default) solid var(--color-light-green);
+	}
+}

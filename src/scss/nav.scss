@@ -1,4 +1,51 @@
+nav {
+	li {
+		list-style: none;
+	}
+
+	a.active {
+		background-color: var(--primary-focus);
+	}
+}
+
+#nav_main {
+	li {
+		padding: 0;
+	}
+
+	li + li a,
+	li + li button {
+		margin-left: 0.75rem;
+	}
+
+	svg {
+		margin-top: -4px;
+		width: 30px;
+		height: 24px;
+	}
+}
+
+*:not(header) > nav {
+	ul {
+		display: block;
+	}
+
+	li {
+		display: block;
+
+		a {
+			display: block;
+		}
+
+		+ li {
+			border-top: 1px solid var(--muted-border-color);
+		}
+	}
+}
+
 .btn-toggle-menu {
 	display: inline-block;
 	width: auto;
+	height: auto;
+	order: 999;
 }

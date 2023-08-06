@@ -1,0 +1,122 @@
+form {
+	.columns,
+	.column {
+		margin-bottom: 0;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+input {
+	margin-bottom: 0 !important;
+}
+
+.form-row {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	margin-bottom: calc(var(--spacing));
+
+	label {
+		flex: 1 1 auto;
+	}
+
+	> * + * {
+		margin-left: var(--spacing);
+	}
+
+	button,
+	.btn {
+		flex: 0 0 48px;
+	}
+}
+
+fieldset legend {
+	font-weight: bold;
+	border-bottom: 2px solid var(--muted-border-color);
+	display: block;
+	margin-bottom: var(--spacing);
+	width: 100%;
+	font-size: 1.2rem;
+	padding: 0 0 calc(var(--spacing) / 2);
+}
+
+.input-group {
+	border-radius: var(--border-radius);
+	display: flex;
+	flex: 0 0 230px;
+
+	form > & {
+		margin-bottom: var(--spacing);
+		flex: 0 0 auto;
+	}
+
+	&:focus-within {
+		box-shadow: 0 0 0 var(--outline-width) var(--form-element-focus-color);
+
+		> * {
+			box-shadow: none;
+			border-color: var(--primary);
+
+			&:not(input):first-child {
+				background-color: var(--primary);
+			}
+		}
+	}
+
+	input {
+		margin: 0;
+		padding-left: calc(var(--form-element-spacing-horizontal) / 2);
+		padding-right: 0;
+
+		&[type='number'] {
+			width: calc(230px - 48px * 2);
+		}
+
+		&:not(:first-child) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		&:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
+	> :not(input) {
+		border: 1px solid var(--form-element-border-color);
+		border-radius: var(--border-radius);
+		padding: var(--form-element-spacing-vertical) 0;
+		text-align: center;
+		flex: 0 0 48px;
+
+		> svg {
+			margin-top: -2px;
+		}
+
+		&:first-child {
+			border-right: 0;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			background-color: var(--form-element-border-color);
+		}
+
+		&:last-child {
+			border-left: 0;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+}
+
+input[type='number'] {
+	text-align: right;
+}
+
+.color-list {
+	ul {
+		display: none;
+	}
+}
