@@ -1,6 +1,8 @@
 import { AuthContext } from '../context/auth.context'
 import { useState, useContext, useRef } from 'react'
+import { nanoid } from 'nanoid'
 import { ReactComponent as IconMenu } from '../assets/icon-menu.svg'
+import { ReactComponent as IconSettings } from '../assets/icon-settings.svg'
 import NavItem from './NavItem'
 
 function Navbar(props) {
@@ -19,7 +21,7 @@ function Navbar(props) {
 		{ title: 'Home', to: '/', end: false },
 		{ title: 'Budget', to: '/budget', end: true },
 		{ title: 'Goals', to: '/goals', end: true },
-		{ title: 'Settings', to: '/settings', end: true },
+		{ title: 'Settings', icon: <IconSettings />, to: '/settings/budget', end: true },
 	]
 
 	return (
@@ -37,25 +39,25 @@ function Navbar(props) {
 					<ul>
 						{navMainItems.map((item) => {
 							return (
-								<li>
-									<NavItem title={item.title} to={item.to} end={item.end} />
+								<li key={nanoid()}>
+									<NavItem title={item.title} icon={item.icon} to={item.to} end={item.end} />
 								</li>
 							)
 						})}
 						{!isLoggedIn ? (
-							<li>
+							<li key={nanoid()}>
 								<button onClick={logOutUser}>Logout</button>
 							</li>
 						) : null}
 					</ul>
 				) : (
 					<ul>
-						{/* <li>
+						{/* <li key={nanoid()}>
 							<NavLink onClick={showNavbar} to="/">
 								Home
 							</NavLink>
 						</li>
-						<li>
+						<li key={nanoid()}>
 							<NavLink onClick={showNavbar} to="/auth/signup">
 								Sign Up
 							</NavLink>

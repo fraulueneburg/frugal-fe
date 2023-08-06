@@ -1,6 +1,6 @@
 import './main.scss'
 import { Routes, Route } from 'react-router-dom'
-import Layout from './pages/WrapperLayout'
+import Layout from './pages/Layout'
 // import PrivatePage from './pages/WrapperPrivatePage'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
@@ -18,6 +18,9 @@ function App() {
 					<Route path="/budget" element={<Budget />}></Route>
 					<Route path="/goals" element={<Goals />}></Route>
 					<Route path="/settings" element={<Settings />}></Route>
+					<Route path="/settings/budget" element={<Settings subpage={'budget'} />}></Route>
+					<Route path="/settings/user" element={<Settings subpage={'user'} />}></Route>
+					<Route path="/settings/categories" element={<Settings subpage={'categories'} />}></Route>
 					{/* <Route
 						path="/auth/profile"
 						element={
@@ -25,23 +28,7 @@ function App() {
 								<ProfilePage />
 							</PrivatePage>
 						}
-					/>
-					<Route
-						path="/budget"
-						element={
-							<PrivatePage>
-								<BudgetOverview />
-							</PrivatePage>
-						}
-					/>
-					<Route
-						path="/budget/settings"
-						element={
-							<PrivatePage>
-								<BudgetSettings />
-							</PrivatePage>
-						}
-					/> */}
+					/>*/}
 				</Route>
 			</Routes>
 		</>

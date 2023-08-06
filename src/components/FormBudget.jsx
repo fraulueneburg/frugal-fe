@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Fieldset from './FormBudgetFieldset'
 
-function BudgetForm() {
+function FormBudget() {
 	const [userObj, setUserObj] = useState({
 		currency: '€',
 		earnings: [
@@ -43,39 +43,48 @@ function BudgetForm() {
 	const [budgetTotal, setBudgetTotal] = useState(0)
 
 	const handleChange = (e, index) => {
-		const parent = e.target.parentElement.parentElement.id
+		e.preventDefault()
+		const parent = e.target.parentElement.parentElement.parentElement.id
 		const inputIndex = index
 		const inputName = e.target.name
 		const inputValue = +e.target.value
 
-		console.log('INPUT INDEX', inputIndex)
-		console.log('INDEX', index)
-
 		if (inputName === 'currency') {
 			setUserObj({ ...userObj, [inputName]: inputValue })
 		} else {
-			//setUserObj({ ...userObj, [parent]: { ...userObj[parent], [inputIndex]: { name: inputName, amount: inputValue } } })
-			setUserObj({ ...userObj, [parent]: [...userObj[parent], { name: inputName, amount: inputValue, index: inputIndex }] })
-			console.log('USEROBJ', userObj)
+			setUserObj({ ...userObj, [parent]: { ...userObj[parent], [inputIndex]: { name: inputName, amount: inputValue } } })
 		}
 
 		setBudgetTotal(budgetTotal + inputValue)
 	}
 
+	const handleNew = (e, index) => {
+		e.preventDefault()
+		console.log('NEW ELEMENT', e)
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+	}
+
+	// useEffect(() => {
+
+	// }, [budgetTotal])
+
 	return (
 		<>
-			<form className="form-budget">
-				<fieldset>
+			<form onSubmit={handleSubmit} className="form-budget">
+				{/* <fieldset>
 					<legend>Your currency</legend>
 					<select name="currency" onChange={handleChange}>
 						<option value="€">€</option>
 						<option value="US$">US$</option>
 						<option value="GBP">GBP</option>
 					</select>
-				</fieldset>
-				<Fieldset data={userObj} index={1} handleChange={handleChange} />
-				<Fieldset data={userObj} index={2} handleChange={handleChange} />
-				<Fieldset data={userObj} index={3} handleChange={handleChange} />
+				</fieldset> */}
+				<Fieldset data={userObj} index={1} handleChange={handleChange} handleNew={handleNew} />
+				<Fieldset data={userObj} index={2} handleChange={handleChange} handleNew={handleNew} />
+				<Fieldset data={userObj} index={3} handleChange={handleChange} handleNew={handleNew} />
 				<fieldset>
 					<legend>Your spending categories</legend>
 				</fieldset>
@@ -85,13 +94,13 @@ function BudgetForm() {
 						{budgetTotal} {`${userObj.currency}`}
 					</big>
 				</fieldset>
-				<button>Start planning</button>
+				<button type="submit">Start planning</button>
 			</form>
 		</>
 	)
 }
 
-export default BudgetForm
+export default FormBudget
 
 // console.log("PARENT:", parent);
 // console.log("INPUT INDEX:", inputIndex);

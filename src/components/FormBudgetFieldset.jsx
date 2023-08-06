@@ -8,8 +8,6 @@ function FormBudgetFieldset(props) {
 	const handleChange = props.handleChange
 	const handleNew = props.handleNew
 
-	console.log('DATA ARR', dataArr)
-
 	return (
 		<fieldset id={dataName}>
 			<legend>All your {dataName}</legend>
@@ -24,7 +22,8 @@ function FormBudgetFieldset(props) {
 							min="0"
 							placeholder="0,00"
 							step=".01"
-							/*value={item.amount}*/ name={item.name}
+							value={item.amount.toFixed(2)}
+							name={item.name}
 							onChange={(e) => handleChange(e, index)}
 						/>
 						<span className="currency">{`${currency}`}</span>
