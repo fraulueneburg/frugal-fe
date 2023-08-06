@@ -1,11 +1,16 @@
 @use './scss/pico/pico.classless.scss';
 
 @use './scss/variables.scss';
+@use './scss/base.scss';
 @use './scss/typography.scss';
+@use './scss/grid.scss';
 
 @use './scss/header.scss';
 @use './scss/nav.scss';
+@use './scss/footer.scss';
 
-@use './scss/buttons.scss';
-@use './scss/forms.scss';
-@use './scss/tables.scss';
+@use './scss/button.scss';
+@use './scss/form.scss';
+@use './scss/table.scss';
+@use './scss/card.scss';
+@use './scss/color-indicator.scss';
