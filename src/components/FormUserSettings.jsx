@@ -49,6 +49,10 @@ function FormSignup() {
 						required
 					/>
 				</div>
+				<label>
+					Profile Picture
+					<input type="file" name="profile picture" />
+				</label>
 				<div className="columns">
 					<div className="column is-6">
 						<label>currency</label>

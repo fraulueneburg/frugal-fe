@@ -10,7 +10,6 @@ function Header() {
 					<span className="name">frugal</span>
 				</Link>
 				<Navbar />
-				<div>Logged in as: Manfred</div>
 			</header>
 		</>
 	)
